@@ -1,8 +1,9 @@
 
 class Player
-  attr_accessor :lives
+  attr_accessor :name, :lives
 
-  def initialize
+  def initialize(name)
+    @name = name
     @lives = 3
   end
 
@@ -36,8 +37,8 @@ class Turn
     number_2 = 1 + rand(20)
     sum = number_1 + number_2
 
-    print "#{player}: "
-    print "What does #{number_1} + #{number_2} equal?"
+    print "#{player.name}: "
+    puts "What does #{number_1} + #{number_2} equal?"
 
     print "> "
     answer = gets.chomp
@@ -55,8 +56,8 @@ end
 
 
 
-player_1 = Player.new
-player_2 = Player.new
+player_1 = Player.new("Player 1")
+player_2 = Player.new("Player 2")
 
 game_1 = Game.new(player_1, player_2)
 
